@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aire.Data
 {
@@ -14,8 +12,16 @@ namespace Aire.Data
             using (var db = new LoopModel())
             {
                 db.Applications.Add(application);
-                // todo: check the result.
-              var result=  db.SaveChanges();
+                try
+                {
+                    var result = db.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    // do nothing, I don't care for duplicates for now...
+                    // use normal logger here...
+                    Console.WriteLine($"Duplicate record. Id:{application.id}");
+                }
             }
         }
 
@@ -25,7 +31,7 @@ namespace Aire.Data
             {
                 return db.Applications.ToList().AsEnumerable();
             }
-            
+
         }
     }
 }

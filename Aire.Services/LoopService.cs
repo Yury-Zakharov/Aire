@@ -18,9 +18,13 @@ namespace Aire.Services
             _governor = governor;
         }
 
-        void ILoopService.AddApplication(LoopApplication application)
+        void ILoopService.AddApplication(IEnumerable<LoopApplication> applications)
         {
-            _dataProvider.AddApplication(application);
+            // get rid of crap as early as possible
+            foreach (var application in applications.Where(p=>p.IsValid))
+            {
+                _dataProvider.AddApplication(application);
+            }
         }
 
         IEnumerable<LoopEvent> ILoopService.GetEvents()

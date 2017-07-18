@@ -19,7 +19,7 @@ namespace Aire.Services.Tests
         {
             _dataProvider = MockRepository.GenerateMock<IDataProvider>();
             _governor = MockRepository.GenerateMock<IGovernor>();
-            _sut = new LoopService(_dataProvider,_governor);
+            _sut = new LoopService(_dataProvider, _governor);
         }
 
         [TearDown]
@@ -29,14 +29,34 @@ namespace Aire.Services.Tests
             _governor.VerifyAllExpectations();
         }
 
-        [Test()]
-        public void AddApplicationCallsDataProvider()
+        [Test]
+        public void AddValidApplicationsCallsDataProvider()
         {
-            var application = new LoopApplication { Applicant = "Вася Пупкин", Amount = 100500m };
-            _dataProvider.Expect(m => m.AddApplication(application))
-                .Repeat.Once();                
-            _sut.AddApplication(application);
+            var applications = new[]
+            {
+            new LoopApplication { id = "29", annual_inc = "29", addr_state = "UT", emp_length = "10+" },
+            new LoopApplication { id = "29", annual_inc = "29", addr_state = "UT", emp_length = "10+" },
+            new LoopApplication { id = "29", annual_inc = "29", addr_state = "UT", emp_length = "10+" }
+            };
+            _dataProvider.Expect(m => m.AddApplication(Arg<LoopApplication>.Matches(p => p.id == "29")))
+                .Repeat.Times(applications.Count(p => p.IsValid));
+            _sut.AddApplication(applications);
         }
+
+        [Test]
+        public void AddInValidApplicationDoesNotCallDataProvider()
+        {
+            var applications = new[]
+            {
+                new LoopApplication { },
+                new LoopApplication { },
+                new LoopApplication { }
+                };
+            _dataProvider.Expect(m => m.AddApplication(Arg<LoopApplication>.Is.Anything))
+                .Repeat.Never();
+            _sut.AddApplication(applications);
+        }
+
 
         [Test()]
         public void GetEventsCallsDataProviderAndPassesResultToGovernor()

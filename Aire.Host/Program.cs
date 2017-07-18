@@ -1,5 +1,6 @@
 ﻿using Aire.IoC.Infrastructure;
 using Aire.Services.Infrastructure;
+using System.Data.Entity;
 using Topshelf;
 using Topshelf.Autofac;
 
@@ -8,7 +9,7 @@ namespace Aire.Host
     class Program
     {
         static void Main(string[] args)
-        {
+        {            
             var container = Bootstrapper.Container;
             HostFactory.Run(c =>
             {

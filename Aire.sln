@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aire.Host", "Aire.Host\Aire.Host.csproj", "{17503C1D-F57E-4DC7-BC15-3267042840E9}"
 EndProject
@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Readme.md = Readme.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aire.GovernorTests", "Aire.GovernorTests\Aire.GovernorTests.csproj", "{7DDD07EB-3B24-44A0-9ECD-C7529E22A0BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,11 +60,16 @@ Global
 		{D8D08B70-80DB-414F-BCE8-62F99D35CEE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8D08B70-80DB-414F-BCE8-62F99D35CEE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8D08B70-80DB-414F-BCE8-62F99D35CEE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DDD07EB-3B24-44A0-9ECD-C7529E22A0BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DDD07EB-3B24-44A0-9ECD-C7529E22A0BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DDD07EB-3B24-44A0-9ECD-C7529E22A0BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DDD07EB-3B24-44A0-9ECD-C7529E22A0BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{541F13B0-F36F-4455-B211-64711E7D736B} = {518073EE-3E82-4A05-8A97-CF5393CDC077}
+		{7DDD07EB-3B24-44A0-9ECD-C7529E22A0BF} = {518073EE-3E82-4A05-8A97-CF5393CDC077}
 	EndGlobalSection
 EndGlobal

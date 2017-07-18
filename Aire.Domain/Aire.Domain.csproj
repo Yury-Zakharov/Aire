@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events.cs" />
+    <Compile Include="Extension.cs" />
     <Compile Include="IDataProvider.cs" />
     <Compile Include="IDecisionProvider.cs" />
     <Compile Include="IGovernor.cs" />

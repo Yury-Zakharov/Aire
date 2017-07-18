@@ -10,10 +10,11 @@ namespace Aire.Services.Infrastructure
     {        
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "/events", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
+        [return: MessageParameter(Name = "events") ]
         IEnumerable<LoopEvent> GetEvents();
 
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "/apps", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        void AddApplication(LoopApplication application);
+        void AddApplication(IEnumerable<LoopApplication> applications);
     }
 }

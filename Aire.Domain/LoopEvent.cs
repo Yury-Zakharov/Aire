@@ -6,7 +6,7 @@ namespace Aire.Domain
     public sealed class LoopEvent
     {
         [DataMember]
-        public int Count { get; set; }
+        public string ApplicationId { get; set; }
 
         [DataMember]
         public string Category { get; set; }
