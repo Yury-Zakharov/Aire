@@ -9,7 +9,7 @@ namespace Aire.Data.Infrastructure
         public DataModule()
         {
             // not the best place for this, probably...
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<LoopModel>());
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<LoopData>());
         }
 
         protected override void Load(ContainerBuilder builder)

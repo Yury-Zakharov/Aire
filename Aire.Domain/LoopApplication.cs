@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 
@@ -8,7 +9,7 @@ namespace Aire.Domain
     public sealed class LoopApplication
     {
 #pragma warning disable IDE1006 // Naming Styles
-        [DataMember] [Key] public string id { get; set; }
+        [DataMember] [Key] public string a { get; set; }
         [DataMember] public string desc { get; set; }
         [DataMember] public string num_il_tl { get; set; }
         [DataMember] public string num_bc_sats { get; set; }
@@ -90,18 +91,53 @@ namespace Aire.Domain
         [DataMember] public string chargeoff_within_12_mths { get; set; }
         [DataMember] public string num_rev_tl_bal_gt_0 { get; set; }
 
-        // This allows to filter out invalid input.
+        // Quick & dirty - filtering records with significant fields empty.
         [IgnoreDataMember]
         [NotMapped]
         public bool IsValid =>
-            !string.IsNullOrWhiteSpace(id)
+            !string.IsNullOrWhiteSpace(a)
             && !string.IsNullOrWhiteSpace(annual_inc)
             && !string.IsNullOrWhiteSpace(addr_state)
-            && !string.IsNullOrWhiteSpace(emp_length);
+            && !string.IsNullOrWhiteSpace(emp_length)
+            && !string.IsNullOrWhiteSpace(issue_d)
+            && !issue_d.Equals("NaT", StringComparison.OrdinalIgnoreCase);
 
         [IgnoreDataMember]
         [NotMapped]
         public decimal AnnualIncome => decimal.TryParse(annual_inc?.Trim(), out decimal res) ? res : decimal.Zero;
+
+        [IgnoreDataMember]
+        [NotMapped]
+        public int IssueDate
+        {
+            get
+            {
+                // Dirty but qiuck. That's enough for the homework PoC.
+                // 5 times faster then converting to DataTime.
+                var month_ = issue_d.Substring(0, 3);
+                var year = issue_d.Substring(4, 2);
+                var month = Array.FindIndex(months, p => p.Equals(month_, StringComparison.OrdinalIgnoreCase))+1;
+                var zero = month < 10 ? "0" : string.Empty;
+                int.TryParse($"{year}{zero}{month}", out int total);
+                return total;
+            }
+        }
+
+        private static string[] months =
+         {
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+        };
 #pragma warning restore IDE1006 // Naming Styles
     }
 }

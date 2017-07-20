@@ -51,8 +51,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\DummyProviderTests.cs" />
     <Compile Include="Providers\ExaggeratedIncomeProviderTests.cs" />
+    <Compile Include="Providers\NewGeoProviderTests.cs" />
     <Compile Include="Providers\ProviderTestBase.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aire.GovernorTests", "Aire.GovernorTests\Aire.GovernorTests.csproj", "{7DDD07EB-3B24-44A0-9ECD-C7529E22A0BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aire.Integration.Test", "Aire.Integration.Test\Aire.Integration.Test.csproj", "{EC560D3C-898C-4DD2-8983-87C845FF4C89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,10 @@ Global
 		{7DDD07EB-3B24-44A0-9ECD-C7529E22A0BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DDD07EB-3B24-44A0-9ECD-C7529E22A0BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DDD07EB-3B24-44A0-9ECD-C7529E22A0BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC560D3C-898C-4DD2-8983-87C845FF4C89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC560D3C-898C-4DD2-8983-87C845FF4C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC560D3C-898C-4DD2-8983-87C845FF4C89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC560D3C-898C-4DD2-8983-87C845FF4C89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,5 +77,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{541F13B0-F36F-4455-B211-64711E7D736B} = {518073EE-3E82-4A05-8A97-CF5393CDC077}
 		{7DDD07EB-3B24-44A0-9ECD-C7529E22A0BF} = {518073EE-3E82-4A05-8A97-CF5393CDC077}
+		{EC560D3C-898C-4DD2-8983-87C845FF4C89} = {518073EE-3E82-4A05-8A97-CF5393CDC077}
 	EndGlobalSection
 EndGlobal

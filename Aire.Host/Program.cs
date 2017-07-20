@@ -24,7 +24,7 @@ namespace Aire.Host
                 c.Service<IServiceRunner>(s =>
                 {
                     s.ConstructUsingAutofacContainer();
-                    s.WhenStarted(service => service.Start());
+                    s.WhenStarted(service => service.Start());  
                     s.WhenStopped(service =>
                     {
                         service.Stop();

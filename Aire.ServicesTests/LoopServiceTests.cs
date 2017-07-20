@@ -34,11 +34,11 @@ namespace Aire.Services.Tests
         {
             var applications = new[]
             {
-            new LoopApplication { id = "29", annual_inc = "29", addr_state = "UT", emp_length = "10+" },
-            new LoopApplication { id = "29", annual_inc = "29", addr_state = "UT", emp_length = "10+" },
-            new LoopApplication { id = "29", annual_inc = "29", addr_state = "UT", emp_length = "10+" }
+            new LoopApplication { a = "29", annual_inc = "29", addr_state = "UT", emp_length = "10+" },
+            new LoopApplication { a = "29", annual_inc = "29", addr_state = "UT", emp_length = "10+" },
+            new LoopApplication { a = "29", annual_inc = "29", addr_state = "UT", emp_length = "10+" }
             };
-            _dataProvider.Expect(m => m.AddApplication(Arg<LoopApplication>.Matches(p => p.id == "29")))
+            _dataProvider.Expect(m => m.AddApplication(Arg<LoopApplication>.Matches(p => p.a == "29")))
                 .Repeat.Times(applications.Count(p => p.IsValid));
             _sut.AddApplication(applications);
         }

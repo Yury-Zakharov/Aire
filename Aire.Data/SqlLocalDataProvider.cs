@@ -9,7 +9,7 @@ namespace Aire.Data
     {
         public void AddApplication(LoopApplication application)
         {
-            using (var db = new LoopModel())
+            using (var db = new LoopData())
             {
                 db.Applications.Add(application);
                 try
@@ -20,14 +20,14 @@ namespace Aire.Data
                 {
                     // do nothing, I don't care for duplicates for now...
                     // use normal logger here...
-                    Console.WriteLine($"Duplicate record. Id:{application.id}");
+                    Console.WriteLine($"Duplicate record. Id:{application.a}");
                 }
             }
         }
 
         public IEnumerable<LoopApplication> GetApplications()
         {
-            using (var db = new LoopModel())
+            using (var db = new LoopData())
             {
                 return db.Applications.ToList().AsEnumerable();
             }

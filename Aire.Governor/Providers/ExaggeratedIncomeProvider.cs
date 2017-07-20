@@ -8,6 +8,7 @@ namespace Aire.Governor.Providers
     {
         IEnumerable<LoopEvent> IDecisionProvider.Decide(IEnumerable<LoopApplication> applications)
         {
+            // Group by location and experience, calculate average and find pertruding.
             var aboveAverage = applications.GroupBy(
                 ap => new
                 {
@@ -19,7 +20,7 @@ namespace Aire.Governor.Providers
                 ));
             foreach (var application in aboveAverage)
             {
-                yield return new LoopEvent { Category = Events.ExaggeratedIncome, ApplicationId = application.id };
+                yield return new LoopEvent { Category = Events.ExaggeratedIncome, ApplicationId = application.a };
             }
         }
     }
